@@ -23,6 +23,8 @@ group :development do
   gem 'listen', '~> 3.2'
 end
 
+gem 'minitest', group: :test
+
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
