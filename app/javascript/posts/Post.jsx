@@ -7,12 +7,13 @@ export function Post({post}) {
   </div>
 }
 
-export default function ConnectedPost() {
-  const post = {
-    id: 1,
-    title: 'React on Rails',
-    body: 'I can use React with Rails.',
+export default class ConnectedPost extends React.Component {
+  render() {
+    const post = {
+      id: 1,
+      title: 'React on Rails',
+      body: 'I can use React with Rails.',
+    }
+    return <Post post={post} />
   }
-
-  return <Post post={post} />
 }
