@@ -15,6 +15,7 @@ jobs:
           POSTGRES_DB: test
           POSTGRES_USER: postgres
 
+    executor: ruby/default
     working_directory: ~/work
 
     steps:
