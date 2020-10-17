@@ -24,9 +24,10 @@ group :development do
   gem 'listen', '~> 3.2'
 end
 
-gem 'minitest', group: :test
-
 group :test do
+  gem 'minitest'
+  gem 'minitest-ci'          # Need this one for Circle CI
+
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
