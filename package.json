@@ -8,12 +8,15 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "jest": "^26.5.3",
     "webpack-dev-server": "^3.11.0"
   }
 }
