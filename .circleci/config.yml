@@ -9,12 +9,12 @@ jobs:
         environment:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres@127.0.0.1/test
+
       - image: circleci/postgres:9.6-alpine
         POSTGRES_DB: test
         POSTGRES_USER: postgres
 
     working_directory: ~/work
-    executor: ruby/default
 
     steps:
       - checkout
