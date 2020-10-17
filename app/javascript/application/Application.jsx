@@ -1,5 +1,5 @@
 import React from 'react'
-import {Post} from 'posts/Post'
+import Post from 'posts/Post'
 
 export function Application(_props) {
   return <div id='application'>

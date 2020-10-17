@@ -8,9 +8,15 @@ import {Post} from 'posts/Post'
 
 
 describe('The post component', () => {
+  const post = {
+    id: 1,
+    title: 'The title',
+    body: 'The body.',
+  }
+
   test('shows a blog post', () => {
-    const component = mount(<Post />)
-    expect(component.find('.title').text()).toBe('React on Rails')
-    expect(component.find('.body').text()).toBe('I can use React with Rails.')
+    const component = mount(<Post post={post}/>)
+    expect(component.find('.title').text()).toEqual('The title')
+    expect(component.find('.body').text()).toEqual('The body.')
   })
 })
