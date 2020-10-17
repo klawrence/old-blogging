@@ -6,7 +6,53 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.6-node-browsers
+        environment:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres@127.0.0.1/test
+      - image: circleci/postgres:9.6-alpine
+        POSTGRES_DB: test
+        POSTGRES_USER: postgres
+
+    working_directory: ~/work
     executor: ruby/default
+
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
       - run: gem install bundler
+      - run: bundle config set path 'vendor/bundle'
+      - run: bundle config set without 'development'
+      - run: bundle install --jobs=4 --retry=3
+      - run: bundle exec rails assets:precompile
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+
+      - run:
+          name: ruby tests
+          command: bundle exec rake test
+
+      - run:
+          name: javascript tests
+          command: yarn jest test/javascript --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ~/work/test/reports
+
+      - run:
+          name: audit gems
+          command: gem install bundler-audit && bundle-audit update && bundle-audit check
+
+      - store_test_results:
+          path: ~/work/test/reports
+      - store_artifacts:
+          path: ~/work/test/reports
+          destination: test-results
