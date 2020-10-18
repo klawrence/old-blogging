@@ -1,5 +1,5 @@
 import React from 'react'
-import * as axios from 'axios'
+import {fetchPost} from './api'
 
 export function Post({post}) {
   return <div className='post'>
@@ -21,15 +21,9 @@ export default class ConnectedPost extends React.Component {
     return <Post post={post} />
   }
 
-  componentDidMount() {
-    const request = {
-      url: 'http://localhost:3000/posts/1.json'
-    }
-
-    return axios(request).then(response => {
-      const post = response.data
-      this.setState({post})
-    })
+  async componentDidMount() {
+    const post = await fetchPost(1)
+    this.setState({post})
   }
 }
 
