@@ -1,5 +1,5 @@
 import React from 'react'
-import {fetchPost} from './api'
+import {fetchPost} from '../ReactToRails/api'
 import {connect} from '../ReactToRails/connect'
 
 export function Post({post}) {
@@ -9,6 +9,6 @@ export function Post({post}) {
   </div>
 }
 
-export default connect(Post, fetchPost)
+export default connect(Post)
 
 
