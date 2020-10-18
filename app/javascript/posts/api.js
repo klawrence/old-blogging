@@ -1,9 +1,5 @@
-import * as axios from 'axios'
+import {server} from 'remote/server'
 
 export function fetchPost(id) {
-  const request = {
-    url: `http://localhost:3000/posts/${id}.json`
-  }
-
-  return axios(request).then(response => response.data)
+  return server.send(`/posts/${id}.json`)
 }
