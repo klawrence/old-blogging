@@ -8,8 +8,10 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+/.idea/
 /log/*
 /tmp/*
+/test/reports/
 !/log/.keep
 !/tmp/.keep
 
@@ -34,4 +36,3 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-/.idea/
