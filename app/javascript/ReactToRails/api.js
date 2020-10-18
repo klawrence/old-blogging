@@ -7,5 +7,3 @@ export function fetch(type, id) {
 function urlFor(type, id) {
   return `/${type}s/${id}.json`
 }
-
-
