@@ -23,6 +23,8 @@ describe('The application', () => {
     assert_select(component, '.site-name',   'Blogging')
     assert_select(component, '.post .title', 'React on Rails')
     assert_select(component, '.post .body',  'I can use React with Rails.')
+
+    expect(server.send).toBeCalledWith('/posts/1.json')
   })
 })
 

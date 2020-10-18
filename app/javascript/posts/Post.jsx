@@ -1,5 +1,6 @@
 import React from 'react'
 import {fetchPost} from './api'
+import {connect} from '../ReactToRails/connect'
 
 export function Post({post}) {
   return <div className='post'>
@@ -8,24 +9,6 @@ export function Post({post}) {
   </div>
 }
 
-export default class ConnectedPost extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      post: {}
-    }
-  }
-
-  render() {
-    const {post} = this.state
-    return <Post post={post} />
-  }
-
-  async componentDidMount() {
-    const post = await fetchPost(1)
-    this.setState({post})
-  }
-}
-
+export default connect(Post, fetchPost)
 
 
