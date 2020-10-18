@@ -10,6 +10,13 @@
 - Author can approve comments
 - Notify the author of new comments
 
+## Wordpress
+- tag cloud
+- style the sidebar
+- add "post extracts"
+- Give all the posts a feeatured image
+- Add an index post.
+
 ## Thoughts
 - Use rails actions names for API
 - Keep track of load status of models
