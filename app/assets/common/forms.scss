@@ -1,0 +1,57 @@
+@import 'constants';
+
+form {
+  label { margin-bottom: $inset; }
+
+  input {}
+  input:not(&.checkbox, &.radio) label {font-weight: bold;}
+  input[type=text], input[type=email], input[type=password], textarea {
+    width: 100%;
+    padding: $inset $margin;
+
+    border: $border;
+    border-radius: $border-radius-small;
+    border-color: $input-border;
+    box-shadow: inset 0 2px 4px $shadow-color;
+    &:focus {
+      border-color: $focus-color;
+      outline: none;
+    }
+  }
+
+  .error {
+    color: $text-color-error;
+    padding: $inset-vertical $margin;
+  }
+
+  .base.errors {
+    background-color: $error-background;
+    border: $border;
+    border-color: $error-border-color;
+    border-radius: $border-radius;
+    margin: $margin 0;
+    padding: $inset;
+    .error { color: $text-color; }
+  }
+}
+
+@include phone-size {
+  form {
+    input { margin-bottom: $margin; }
+    .actions {
+      text-align: center;
+      .button { margin-left: $inset; }
+    }
+  }
+}
+
+@include bigger-than-phone {
+  form {
+    input { margin-bottom: $margin; }
+
+    .actions {
+      text-align: right;
+      .button { margin-left: $inset; }
+    }
+  }
+}

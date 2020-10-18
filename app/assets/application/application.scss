@@ -1,0 +1,41 @@
+@import 'constants';
+
+#application {
+  min-height: $min-height;
+  background-color: $app-background;
+
+  #header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  #main {
+    > * {box-sizing: border-box;}
+    #content { min-height: $min-height; }
+  }
+}
+
+@include phone-size {
+  #application {
+    width: 100%;
+    #main { padding-bottom: $margin; }
+  }
+}
+
+@include bigger-than-phone {
+  #application {
+    margin: 0 auto;
+    width: $page-width;
+    max-width: 100%;
+
+    #header {
+      width: $page-width;
+    }
+
+    #main {
+      margin: 0 $margin;
+      padding: $margin 0;
+    }
+  }
+}
+

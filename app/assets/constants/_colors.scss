@@ -1,0 +1,29 @@
+$page-background: #accfd9;
+$app-background: #f1f8f9;
+$header-background: #e2ecf2;
+$content-background: #fff;
+
+$primary-accent: #285c81;
+
+$warning: #d4743e;
+
+$text-color: #4f4e50;
+$text-color-dark: #333;
+$text-color-faded: #888788;
+$text-color-white: #FFF;
+$text-color-error: $warning;
+
+$border-color: #e9ebee;
+$shadow-color: rgba(131, 133, 135, .25);
+
+$input-border: #c5c9cf;
+$focus-color: $primary-accent;
+
+$error-background: lighten($warning, 20%);
+$error-border-color: $border-color;
+
+$post-background: $content-background;
+
+$button-background: #4d80a2;
+$button-color: #FFF;
+$button-border-color: #4d80a2;

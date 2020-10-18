@@ -1,0 +1,13 @@
+$page-width: 40rem;
+$min-height: 100vh;
+
+$header-desktop-height: 4.5rem;
+$header-phone-height: 3rem;
+
+@mixin phone-size {
+  @media (max-width: 700px) { @content; }
+}
+
+@mixin bigger-than-phone {
+  @media (min-width: 701px) { @content; }
+}

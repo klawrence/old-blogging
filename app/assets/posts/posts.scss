@@ -1,0 +1,14 @@
+@import 'constants';
+
+.post {
+  margin: $margin 0;
+  padding: $margin;
+
+  background-color: $post-background;
+  border: $border;
+  border-radius: $border-radius;
+  box-shadow: $drop-shadow;
+
+  .title { font-size: 1rem; }
+  * { overflow: hidden; }
+}

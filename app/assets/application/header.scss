@@ -1,0 +1,22 @@
+@import 'constants';
+
+.header {
+  display: flex;
+  align-items: center;
+
+  background-color: $header-background;
+  border: $border;
+}
+
+@include phone-size {
+  .header {
+    padding: $inset $inset-small;
+  }
+}
+
+
+@include bigger-than-phone {
+  .header {
+    padding: $margin;
+  }
+}

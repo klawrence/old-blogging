@@ -1,0 +1,16 @@
+@import 'constants';
+
+.button {
+  padding: $inset-vertical $inset ;
+
+  background-color: $button-background;
+  color: $button-color;
+  border: $button-border;
+  border-radius: $border-radius-small;
+  text-transform: uppercase;
+  line-height: $line-height;
+
+  @include phone-size {font-size: $font-size-phone;}
+  @include bigger-than-phone {font-size: $font-size;}
+}
+
