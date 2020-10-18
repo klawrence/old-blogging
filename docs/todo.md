@@ -10,7 +10,29 @@
 - Author can approve comments
 - Notify the author of new comments
 
-## React on Rails
+## Thoughts
+- Use rails actions names for API
+- Keep track of load status of models
+- Add methods to models so you can call back
+- Manage a dispatch list
+
+## Remote
+- handle errors
+
+## Gems
+- react to sorcery
+
+## React to Rails
+### API
+- Create 
+- Update
+- Index
+- Fetch an association (eg post.author)
+- use rails routes to build urls (put them in the JSON file, REST-style?)
+
+### Config
+- Use the rails locale file
+
 ### Initialization
 Rake task should initialize the application component
 ```
