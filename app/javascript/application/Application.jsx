@@ -15,7 +15,7 @@ export function Application(_props) {
           <input type='submit' className='button' />
         </div>
       </form>
-      <Post />
+      <Post id={1}/>
     </div>
   </div>
 }
