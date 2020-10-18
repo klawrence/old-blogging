@@ -19,6 +19,11 @@ form {
     }
   }
 
+  textarea {
+    height: 10em;
+    resize: vertical;
+  }
+
   .error {
     color: $text-color-error;
     padding: $inset-vertical $margin;
