@@ -20,13 +20,27 @@ describe('The application', () => {
     server.send.mockReturnValue(post)
   })
 
-  test('shows the first blog post', async () => {
+  test('also shows the first blog post', async () => {
     const component = await mount(<Application />)
 
-    expect(component.find('.site-name').text()).toEqual('Blogging')
-    expect(component.find('.post .title').text()).toEqual('React on Rails')
-    expect(component.find('.post .body').text()).toEqual('I can use React with Rails.')
-
-    expect(server.send).toBeCalledWith('/posts/1.json')
+    assert_select(component, '.site-name',   'Blogging')
+    assert_select(component, '.post .title', 'React on Rails')
+    assert_select(component, '.post .body',  'I can use React with Rails.')
   })
+
 })
+
+export function assert_select(component, selector, expectation) {
+  const selected = component.find(selector)
+  switch(typeof(expectation)) {
+    case 'string':
+      expect(selected.text()).toEqual(expectation)
+      break
+    case 'number':
+      expect(selected.length).toEqual(expectation)
+      break
+    default:
+      expect(expectation).toEqual('string or number')
+      break
+  }
+}
