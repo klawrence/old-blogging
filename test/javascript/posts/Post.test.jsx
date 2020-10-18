@@ -1,11 +1,8 @@
 import React from 'react'
-import {mount} from 'enzyme'
-import {configure} from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-configure({ adapter: new Adapter() })
+
+import {assert_select, display} from '../helpers/ReactHelpers'
 
 import {Post} from 'posts/Post'
-
 
 describe('The post component', () => {
   const post = {
@@ -15,8 +12,8 @@ describe('The post component', () => {
   }
 
   test('shows a blog post', () => {
-    const component = mount(<Post post={post}/>)
-    expect(component.find('.title').text()).toEqual('The title')
-    expect(component.find('.body').text()).toEqual('The body.')
+    const component = display(<Post post={post}/>)
+    assert_select(component, '.title', 'The title')
+    assert_select(component, '.body', 'The body.')
   })
 })
