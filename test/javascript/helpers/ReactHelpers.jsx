@@ -1,12 +1,13 @@
 import {configure, mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+
 configure({ adapter: new Adapter() })
 
 export function display(component) {
   return mount(component)
 }
 
-export function assert_select(component, selector, expectation) {
+export function assert_select(component, selector, expectation=1) {
   const selected = component.find(selector)
   switch (typeof (expectation)) {
     case 'string':

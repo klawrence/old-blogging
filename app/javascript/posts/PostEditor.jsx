@@ -1,31 +1,39 @@
 import React from 'react'
 
-export class PostEditor extends React.Component {
+export default class PostEditor extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       post: {}
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  // TODO write the test
-
   render() {
-    const {title, body} = this.state.post
+    const {post} = this.state
 
-    return <form onChange={this.handleChange}>
-      <input type='text' name='title' value={title}/>
-      <textarea name='body' value={body} />
+    return <form onChange={this.handleChange}
+                 onSubmit={this.handleSubmit}>
+      <input type='text' name='title' className='title' defaultValue={post.title} />
+      <textarea name='body' className='body' defaultValue={post.body} />
       <div className='actions'>
-        <input type='submit' className='button'/>
+        <input type='submit' className='button' />
       </div>
     </form>
   }
 
   handleChange(event) {
-    const {id, value} = event.target
-    this.setState({id, value})
+    const {name, value} = event.target
+    const post = {
+      ...this.state.post,
+      [name]: value
+    }
+    this.setState({post})
+  }
+
+  handleSubmit() {
+    this.props.onSubmit(this.state.post)
   }
 }
 
