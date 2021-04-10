@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {assert_select, display} from '../helpers/ReactHelpers'
-import {PostEditor} from 'posts/PostEditor'
+import PostEditor from 'posts/PostEditor'
 
 describe('The post editor', () => {
   test('displays a form', () => {
