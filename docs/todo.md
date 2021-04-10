@@ -3,6 +3,8 @@
 ## Blogging
 - Show a post
 - Create a post
+  - https://github.com/heartcombo/simple_form
+  - https://reach.tech/router/
 - Show a list of posts
 - Edit a post
 - Comment on a post
@@ -14,7 +16,7 @@
 - tag cloud
 - style the sidebar
 - add "post extracts"
-- Give all the posts a feeatured image
+- Give all the posts a featured image
 - Add an index post.
 
 ## Thoughts

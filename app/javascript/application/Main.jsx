@@ -1,11 +1,10 @@
 import React from 'react'
 import Post from 'posts/Post'
-import {Form} from '../posts/Form'
-import {Header} from './Header'
+import PostEditor from '../posts/PostEditor'
 
 export function Main() {
   return <div id='main'>
-      <Form />
+      <PostEditor />
       <Post id={1}/>
     </div>
 }

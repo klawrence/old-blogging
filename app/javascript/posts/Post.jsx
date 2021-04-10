@@ -1,5 +1,4 @@
 import React from 'react'
-import {fetchPost} from '../ReactToRails/api'
 import {connect} from '../ReactToRails/connect'
 
 export function Post({post}) {
