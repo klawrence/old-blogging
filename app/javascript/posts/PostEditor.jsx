@@ -33,7 +33,8 @@ export default class PostEditor extends React.Component {
   }
 
   handleSubmit() {
-    this.props.onSubmit(this.state.post)
+    const {onSubmit} = this.props
+    onSubmit && onSubmit(this.state.post)
   }
 }
 
