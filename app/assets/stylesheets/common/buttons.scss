@@ -10,6 +10,8 @@
   text-transform: uppercase;
   line-height: $line-height;
 
+  cursor: pointer;
+
   @include phone-size {font-size: $font-size-phone;}
   @include bigger-than-phone {font-size: $font-size;}
 }
