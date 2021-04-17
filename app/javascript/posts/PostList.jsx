@@ -1,6 +1,6 @@
 import React from 'react'
 import {Post} from './Post'
-import {list} from '../ReactToRails/api'
+import {listPosts} from '../ReactToRails/api'
 
 export default class PostList extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ export default class PostList extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await list()
+    const response = await listPosts()
     const posts = response.posts
     this.setState({posts})
   }

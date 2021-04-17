@@ -4,7 +4,7 @@ export function fetch(type, id) {
   return server.get(urlFor(type, id))
 }
 
-export function list() {
+export function listPosts() {
   return server.get(`/posts.json`)
 }
 
