@@ -1,4 +1,5 @@
 import React from 'react'
+import * as axios from 'axios'
 
 export default class PostEditor extends React.Component {
   constructor(props) {
@@ -32,10 +33,29 @@ export default class PostEditor extends React.Component {
     this.setState({post})
   }
 
-  handleSubmit() {
-    const {onSubmit} = this.props
-    onSubmit && onSubmit(this.state.post)
+  handleSubmit(event) {
+    event.preventDefault()
+
+    const {post} = this.state
+
+    const request = {
+      url: '/posts.json',
+      method: 'post',
+      data: {post},
+      headers: {
+        'X-CSRF-Token': getCSRFToken(),
+      }
+    }
+    return axios(request)
+        .then(response => console.log(response.data))
+        .catch(error => console.log(error))
   }
 }
+
+export function getCSRFToken() {
+  const csrfTag = document.querySelector('meta[name=csrf-token]') || {content: 'missing-csrf-token'}
+  return csrfTag.content
+}
+
 
 
