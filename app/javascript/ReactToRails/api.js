@@ -4,6 +4,10 @@ export function fetch(type, id) {
   return server.get(urlFor(type, id))
 }
 
+export function list() {
+  return server.get(`/posts.json`)
+}
+
 function urlFor(type, id) {
   return `/${type}s/${id}.json`
 }

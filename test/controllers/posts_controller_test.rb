@@ -10,6 +10,15 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'get the posts index as json' do
+    get posts_url(format: :json)
+    assert_response :success
+    json = JSON.parse response.body, symbolize_names: true
+
+    assert 1, json[:posts].count
+    assert 'The title', json[:posts][0][:title]
+  end
+
   test 'fetch a post as json' do
     get post_url(@post, format: :json)
     assert_response :success

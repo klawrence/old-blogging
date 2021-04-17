@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: :show
 
+  def index
+    @posts = Post.all
+  end
+
+
   def create
     @post = Post.new post_params
     if @post.save
