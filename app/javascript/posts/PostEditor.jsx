@@ -1,6 +1,6 @@
 import React from 'react'
 
-export class PostEditor extends React.Component {
+export default class PostEditor extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
